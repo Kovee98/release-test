@@ -1,5 +1,5 @@
 {
-  "name": "gren-test",
+  "name": "release-test",
   "version": "1.2.5",
   "description": "",
   "main": "index.js",
@@ -7,12 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "mkdir dist && cp src/test.txt dist",
     "bump-version": "npm version --no-git-tag-version $VERSION",
-    "zip": "echo building gren-$npm_package_version.zip... && zip -jr gren-$npm_package_version.zip dist && echo done",
-    "tar": "echo building gren-$npm_package_version.tar.gz... && tar -zcf gren-$npm_package_version.tar.gz dist && echo done"
+    "zip": "echo building release-$npm_package_version.zip... && zip -jr release-$npm_package_version.zip dist && echo done",
+    "tar": "echo building release-$npm_package_version.tar.gz... && tar -zcf release-$npm_package_version.tar.gz dist && echo done",
+    "zip2": "echo building release-$VERSION.zip... && zip -jr release-$VERSION.zip dist && echo done",
+    "tar2": "echo building release-$VERSION.tar.gz... && tar -zcf release-$VERSION.tar.gz dist && echo done",
+    "compress": "zip -jr release-$VERSION.zip dist && tar -zcf release-$VERSION.tar.gz dist"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Kovee98/gren-test.git"
+    "url": "https://github.com/Kovee98/release-test.git"
   },
   "husky": {
     "hooks": {
@@ -23,15 +26,16 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kovee98/gren-test/issues"
+    "url": "https://github.com/Kovee98/release-test/issues"
   },
-  "homepage": "https://github.com/Kovee98/gren-test#readme",
+  "homepage": "https://github.com/Kovee98/release-test#readme",
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
     "husky": "^4.2.5",
     "semantic-release": "^17.1.1"
   }

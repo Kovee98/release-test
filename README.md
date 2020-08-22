@@ -1,5 +1,5 @@
-# Gren Test
-> Testing the features of Gren
+# Release Test
+> Testing the features of automatic releases
 
 ## Why
 - Need to automate release notes for other projects

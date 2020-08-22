@@ -12,8 +12,8 @@ stages:
   - name: install
   - name: release
     if: ((branch = master AND type = push) OR (tag IS present)) AND NOT fork
-  - name: deploy
-    if: ((branch = master AND type = push) OR (tag IS present)) AND NOT fork
+  # - name: deploy
+  #   if: ((branch = master AND type = push) OR (tag IS present)) AND NOT fork
 
 jobs:
   include:
@@ -25,21 +25,22 @@ jobs:
     - stage: release
       name: release
       script:
-      - npx semantic-release
-      skip_cleanup: true
-    - stage: deploy
-      name: build and deploy
-      script:
       - npm run build
-      - npm run zip
-      - npm run tar
-      - export ZIP_FILE=$(ls gren-*.zip)
-      - export TAR_FILE=$(ls gren-*.tar.gz)
-      deploy:
-        provider: releases
-        api_key: $GH_TOKEN
-        file_glob: true
-        files:
-          - "${ZIP_FILE}"
-          - "${TAR_FILE}"
-        skip_cleanup: true
+      - npx semantic-release
+    #   skip_cleanup: true
+    # - stage: deploy
+    #   name: build and deploy
+    #   script:
+    #   - npm run build
+    #   - npm run zip
+    #   - npm run tar
+    #   - export ZIP_FILE=$(ls release-*.zip)
+    #   - export TAR_FILE=$(ls release-*.tar.gz)
+    #   deploy:
+    #     provider: releases
+    #     api_key: $GH_TOKEN
+    #     file_glob: true
+    #     files:
+    #       - "${ZIP_FILE}"
+    #       - "${TAR_FILE}"
+    #     skip_cleanup: true
