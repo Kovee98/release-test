@@ -1,0 +1,38 @@
+{
+  "name": "gren-test",
+  "version": "1.2.5",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir dist && cp src/test.txt dist",
+    "bump-version": "npm version --no-git-tag-version $VERSION",
+    "zip": "echo building gren-$npm_package_version.zip... && zip -jr gren-$npm_package_version.zip dist && echo done",
+    "tar": "echo building gren-$npm_package_version.tar.gz... && tar -zcf gren-$npm_package_version.tar.gz dist && echo done"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kovee98/gren-test.git"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kovee98/gren-test/issues"
+  },
+  "homepage": "https://github.com/Kovee98/gren-test#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "husky": "^4.2.5",
+    "semantic-release": "^17.1.1"
+  }
+}
